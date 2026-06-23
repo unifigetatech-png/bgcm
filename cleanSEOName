@@ -1,0 +1,12 @@
+function cleanSEOName(baseName) {
+    let clean = baseName
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, '-')
+        .replace(/-+/g, '-');
+    
+    // Inject hyper-local Burleigh / Gold Coast Motel authority terms
+    if (!clean.includes('burleigh')) {
+        clean += '-burleigh-gold-coast-motel-accommodation';
+    }
+    return clean;
+}

@@ -1,0 +1,220 @@
+/* ── NATIVE PICTURE LAYOUT (see-do park cards, local grid, attraction galleries) ── */
+.park-photo picture,
+.local-photo picture,
+.gallery-img picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.park-photo img,
+.local-photo img,
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.park-photo img {
+  aspect-ratio: 16 / 9;
+}
+
+.local-photo img,
+.gallery-img img {
+  aspect-ratio: 4 / 3;
+}
+
+/* ── PAGE HERO (shared: index + sub-pages + standalone attractions) ── */
+.page-hero { position: relative; min-height: 420px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #0a1d33; }
+.page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.55; }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,30,55,0.4), rgba(10,30,55,0.85)); }
+.page-hero-content { position: relative; z-index: 2; padding: 60px 24px; max-width: 780px; }
+.hero-badge { display: inline-block; background: var(--gold); color: var(--charcoal); font-weight: 900; font-size: 11px; letter-spacing: 2px; padding: 5px 18px; margin-bottom: 20px; text-transform: uppercase; }
+.page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(46px, 8.5vw, 92px); color: var(--white); line-height: 0.92; letter-spacing: 1.5px; margin-bottom: 18px; }
+.page-hero h1 em, .page-hero h1 .hl { color: var(--gold); font-style: normal; }
+.page-hero p { font-size: 17px; color: rgba(255,255,255,0.92); font-weight: 600; line-height: 1.55; max-width: 600px; margin: 0 auto; }
+
+/* ── DISTANCE STRIP (see-do index only) ── */
+.distance-strip { background: var(--charcoal); padding: 22px 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0; }
+.dist-item { text-align: center; padding: 10px 26px; border-right: 1px solid rgba(255,255,255,0.12); }
+.dist-item:last-child { border-right: none; }
+.dist-val { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--gold); letter-spacing: 1px; line-height: 1; }
+.dist-label { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+/* ── INFO STRIP (attraction sub-pages) ── */
+.info-strip { background: var(--charcoal); padding: 22px 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0; }
+.info-item { text-align: center; padding: 10px 28px; border-right: 1px solid rgba(255,255,255,0.12); }
+.info-item:last-child { border-right: none; }
+.info-val { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--gold); letter-spacing: 1px; line-height: 1; }
+.info-key { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+/* ── PARK CARDS (see-do index) ── */
+.parks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--grid-gap); }
+.park-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.25s, transform 0.25s; }
+.park-card:hover { box-shadow: 0 12px 36px rgba(42,126,200,0.16); transform: translateY(-3px); }
+.park-photo { position: relative; overflow: hidden; }
+.park-photo-tag { position: absolute; top: 12px; left: 12px; background: var(--gold); color: var(--charcoal); font-size: 10px; font-weight: 900; letter-spacing: 1.5px; padding: 4px 12px; text-transform: uppercase; border-radius: 4px; }
+.park-photo-coming { position: absolute; right: 10px; bottom: 10px; background: rgba(28,43,58,0.78); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.4px; padding: 4px 9px; border-radius: 30px; text-transform: uppercase; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.park-info { padding: 24px 22px; display: flex; flex-direction: column; flex: 1; }
+.park-dist { font-size: 11px; font-weight: 900; color: var(--sky-dark); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.park-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--charcoal); margin-bottom: 10px; line-height: 1; }
+.park-desc { font-size: 14px; color: var(--mid); font-weight: 600; line-height: 1.6; margin-bottom: 20px; flex: 1; }
+.park-link { display: inline-flex; align-items: center; gap: 6px; color: var(--sky-dark); font-weight: 900; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; align-self: flex-start; border-bottom: 2px solid var(--sky-dark); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+.park-link:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
+
+/* ── HONEST PANEL (index) + HONEST BLOCK (sub-pages) ── */
+.honest-panel { background: #FFF8E8; border-left: 4px solid var(--gold); padding: 22px 26px; border-radius: 8px; margin-top: 36px; }
+.honest-panel h3 { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; color: #5C4A1F; margin-bottom: 8px; }
+.honest-panel p { font-size: 14.5px; color: #5C4A1F; line-height: 1.65; margin-bottom: 8px; }
+.honest-panel p:last-child { margin-bottom: 0; }
+.honest-panel strong { color: #3D2E10; }
+.honest-block { background: #FFF8E8; border-left: 3px solid var(--gold); padding: 14px 18px; border-radius: 6px; margin: 24px 0; font-size: 14px; color: #5C4A1F; line-height: 1.6; }
+.honest-block strong { color: #3D2E10; }
+
+/* ── LOCAL SECTION (index) ── */
+.local-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.local-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--grid-gap); }
+.local-photo { position: relative; overflow: hidden; border-radius: 12px; }
+.local-photo .ph-coming { position: absolute; top: 12px; right: 12px; background: rgba(28,43,58,0.78); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.4px; padding: 4px 9px; border-radius: 30px; text-transform: uppercase; }
+.local-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 22px 18px; background: linear-gradient(transparent, rgba(10,25,45,0.82)); color: var(--white); }
+.local-caption h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; line-height: 1.05; }
+.local-caption p { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 600; margin-top: 3px; }
+.local-stack { display: flex; flex-direction: column; gap: var(--grid-gap); }
+
+/* ── WHERE BAND (index) ── */
+.where-band { background: var(--sky-dark); color: #fff; padding: var(--section-y) var(--side-padding); text-align: center; }
+.where-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(30px, 4.5vw, 46px); letter-spacing: 1.5px; line-height: 1; margin-bottom: 10px; }
+.where-band h2 em { color: var(--gold); font-style: normal; }
+.where-band p { font-size: 15px; color: rgba(255,255,255,0.88); font-weight: 600; max-width: 600px; margin: 0 auto 22px; }
+.where-band a.btn-gold { display: inline-block; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px; padding: 14px 36px; border-radius: 6px; }
+
+/* ── PARK CONTENT (attraction sub-pages: prose + sidebar grid) ── */
+.park-content-inner {
+  max-width: var(--container-max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.55fr 1fr; gap: var(--grid-gap);
+  align-items: start;
+}
+.park-prose { order: 1; min-width: 0; }
+.park-prose h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(26px, 3.5vw, 34px); letter-spacing: 1.2px; margin: 30px 0 12px; line-height: 1.1; }
+.park-prose h2:first-child { margin-top: 0; }
+.park-prose p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; color: var(--charcoal); }
+.park-prose ul { margin: 8px 0 16px 22px; }
+.park-prose ul li { font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+.park-prose a { color: var(--sky-dark); font-weight: 700; border-bottom: 1px solid var(--sky-light); }
+.park-prose a:hover { border-bottom-color: var(--sky-dark); }
+.park-prose strong { font-weight: 800; }
+
+/* ── PARK SIDEBAR ── */
+.park-sidebar {
+  order: 2;
+  position: sticky; top: var(--sticky-sub-top); align-self: start; min-width: 0;
+}
+.sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 18px; box-shadow: 0 4px 16px rgba(28,43,58,0.04); }
+.sidebar-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.2px; margin-bottom: 14px; color: var(--charcoal); }
+.sidebar-facts { list-style: none; }
+.sidebar-facts li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; gap: 10px; }
+.sidebar-facts li:last-child { border-bottom: none; }
+.sidebar-facts li strong { color: var(--charcoal); font-weight: 800; text-align: right; max-width: 65%; }
+.sidebar-facts li span { color: var(--mid); font-weight: 700; }
+.sidebar-cta { background: var(--gold); color: var(--charcoal); font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px; padding: 14px; border: none; cursor: pointer; border-radius: 8px; width: 100%; text-align: center; display: block; transition: background 0.2s; text-transform: uppercase; }
+.sidebar-cta:hover { background: var(--gold-dark); }
+.sidebar-call { display: block; text-align: center; margin-top: 10px; font-size: 13.5px; font-weight: 800; color: var(--sky-dark); }
+.sidebar-call:hover { text-decoration: underline; }
+
+/* ── MINIMAP (attraction sub-pages) ── */
+.minimap-wrap { background: var(--sky-light); border-radius: 8px; padding: 12px; margin-bottom: 14px; }
+.minimap-svg { display: block; width: 100%; height: auto; }
+.minimap-caption { font-size: 12px; color: var(--mid); font-weight: 700; text-align: center; margin-top: 8px; line-height: 1.5; }
+
+/* ── DIRECTIONS LINK ── */
+.directions-link { display: inline-flex; align-items: center; gap: 6px; background: rgba(74,159,232,0.08); color: var(--sky-dark); border: 1px solid var(--sky-light); padding: 10px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.3px; width: 100%; justify-content: center; margin-top: 10px; transition: background 0.2s, border-color 0.2s; }
+.directions-link:hover { background: rgba(74,159,232,0.15); border-color: var(--sky-dark); }
+
+/* ── GALLERY ── */
+.gallery-section { padding: 24px 24px 56px; }
+.gallery-inner { max-width: var(--container-max); margin: 0 auto; }
+.gallery-label { font-size: 12px; font-weight: 900; letter-spacing: 2px; color: var(--sky-dark); text-transform: uppercase; margin-bottom: 6px; }
+.gallery-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(24px, 3.5vw, 32px); letter-spacing: 1.2px; margin-bottom: 6px; line-height: 1.1; }
+.gallery-sub { font-size: 14px; color: var(--mid); margin-bottom: 20px; font-style: italic; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.gallery-slot { aspect-ratio: 4/3; background: linear-gradient(135deg,#E1E8F0 0%,#CFD9E5 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #8A9DB0; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; border: 1px dashed #B5C3D2; }
+.gallery-img { overflow: hidden; border-radius: 8px; }
+
+/* ── ROOMS CROSS-SELL (attraction sub-pages) ── */
+.rooms-cta-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding-block: var(--section-y); padding-inline: 0; }
+.rooms-cta-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--side-padding); text-align: center; }
+.rooms-cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--grid-gap); max-width: 920px; margin: 24px auto 28px; }
+.room-cta-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 22px; text-align: left; display: flex; flex-direction: column; }
+.room-cta-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; margin-bottom: 4px; }
+.room-cta-card .price { color: var(--gold-dark); font-weight: 900; font-size: 13px; margin-bottom: 8px; letter-spacing: 0.5px; }
+.room-cta-card p { font-size: 14px; color: var(--mid); font-weight: 600; line-height: 1.55; margin-bottom: 14px; flex: 1; }
+.room-cta-card a { display: inline-flex; align-items: center; gap: 6px; color: var(--sky-dark); font-weight: 800; font-size: 13px; align-self: flex-start; }
+.room-cta-card a::after { content: "→"; transition: transform 0.2s; }
+.room-cta-card a:hover::after { transform: translateX(4px); }
+.rooms-cta-all { display: inline-block; color: var(--sky-dark); font-weight: 900; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid var(--sky-dark); padding-bottom: 2px; margin-top: 6px; }
+.rooms-cta-all:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
+
+/* ── FAQ ── */
+.faq-section { padding-block: var(--section-y); padding-inline: var(--side-padding); background: var(--bg); }
+.faq-inner { max-width: 880px; margin: 0 auto; }
+.faq-label { font-size: 12px; font-weight: 900; letter-spacing: 2px; color: var(--sky-dark); text-transform: uppercase; margin-bottom: 6px; text-align: center; }
+.faq-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px, 4vw, 42px); letter-spacing: 1.5px; text-align: center; margin-bottom: 32px; line-height: 1.05; }
+.faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+.faq-item summary { padding: 18px 22px; font-weight: 800; font-size: 15.5px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 24px; color: var(--sky-dark); font-weight: 400; transition: transform 0.2s; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: var(--sky-dark); }
+.faq-item-body { padding: 0 22px 20px; font-size: 14.5px; color: var(--mid); line-height: 1.7; }
+.faq-item-body p { margin-bottom: 10px; }
+.faq-item-body p:last-child { margin-bottom: 0; }
+.faq-item-body a { color: var(--sky-dark); font-weight: 700; border-bottom: 1px solid var(--sky-light); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .parks-grid { grid-template-columns: 1fr 1fr; }
+  .local-grid { grid-template-columns: 1fr; }
+  .park-content-inner { grid-template-columns: 1fr; gap: var(--grid-gap); }
+  .park-prose { order: 1; }
+  .park-sidebar {
+    position: static;
+    order: 2;
+    margin-top: var(--section-y-mobile);
+    padding-top: var(--section-y-mobile);
+    border-top: 1px solid var(--border);
+  }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: var(--grid-gap-tight); }
+  .rooms-cta-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 681px) and (max-width: 900px) {
+  .park-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--grid-gap);
+    align-items: start;
+  }
+  .park-sidebar .sidebar-card { margin-bottom: 0; }
+}
+@media (max-width: 680px) {
+  .parks-grid { grid-template-columns: 1fr; }
+  .park-sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap);
+  }
+  .park-sidebar .sidebar-card { margin-bottom: 0; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .dist-item { padding: 8px 14px; }
+  .info-item { padding: 8px 18px; }
+}
+@media (max-width: 380px) {
+  .page-hero h1 {
+    font-size: clamp(36px, 10vw, 46px);
+    letter-spacing: 0.5px;
+  }
+  .where-band h2,
+  .faq-title {
+    letter-spacing: 0.5px;
+  }
+}

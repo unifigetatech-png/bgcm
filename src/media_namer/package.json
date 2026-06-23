@@ -1,0 +1,15 @@
+{
+  "name": "media_namer",
+  "version": "1.0.0",
+  "description": "SEO-friendly media naming and image optimisation for Burleigh Gold Coast Motel",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "optimize": "node cli.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.0",
+    "sharp": "^0.34.2"
+  }
+}

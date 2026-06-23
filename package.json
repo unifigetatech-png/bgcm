@@ -1,0 +1,27 @@
+{
+  "name": "my-cursor-project",
+  "version": "1.0.0",
+  "description": "Focused modular utility suite",
+  "private": true,
+  "scripts": {
+    "test:all": "npm run test --workspaces",
+    "test:html": "npm run test -w src/html_builder",
+    "test:media": "npm run test -w src/media_namer",
+    "test:seo": "npm run test -w seo_analyzer",
+    "optimize:images": "npm run optimize -w src/media_namer",
+    "build:images": "node build-images.js",
+    "audit:site": "node src/seo_analyzer/audit.js",
+    "export:media-csv": "node src/seo_analyzer/exportMediaCSV.js",
+    "fix:media": "node src/seo_analyzer/fixMediaIssues.js",
+    "build:seo-complete": "node src/media_namer/process_all_images.js && node src/seo_analyzer/audit.js --fix && npm run audit:site"
+  },
+  "workspaces": [
+    "src/html_builder",
+    "src/media_namer"
+  ],
+  "dependencies": {
+    "fs-extra": "^11.3.0",
+    "linkedom": "^0.18.12",
+    "sharp": "^0.34.2"
+  }
+}

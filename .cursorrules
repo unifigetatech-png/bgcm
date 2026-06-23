@@ -1,0 +1,5 @@
+﻿# Map & Location Rendering
+
+## CRITICAL Security & Billing Rules
+- CRITICAL: Never paste or include Google API credential tokens (e.g., `AIzaSy...`) inside raw HTML files.
+- ALWAYS restrict location map renderings to localized, billing-free iframe embeds with cross-device map routing links.
