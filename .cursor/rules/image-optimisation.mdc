@@ -1,0 +1,37 @@
+---
+description: Image optimisation pipeline — sharp-only re-encode with byte gate and staging safeguards
+globs: ["**/*.{html,js,mjs,json}", "images/**", "src/public_html/images/**"]
+alwaysApply: true
+---
+
+# Image Optimisation
+
+## Encoder
+- ALWAYS use **sharp** for raster → WebP conversion. No other encoders.
+- Production WebP settings: **quality 78**, **effort 6** (matches `src/media_namer/constants.js`).
+
+## Byte gate (mandatory)
+- NEVER replace an existing WebP in place unless the candidate file is **≥5% smaller** than the original (`new_bytes <= original_bytes * 0.95`).
+- ALWAYS write candidates to a scratch/temp path first; swap only after the byte gate passes.
+- ALWAYS record every attempt in `scratchpad/optimise-report.csv` before any in-place replacement.
+
+## In-place WebP re-encode
+- NEVER re-encode a live WebP in place without a prior `scratchpad/optimise-report.csv` row for that file.
+- NEVER bulk re-encode without a dry-run or report pass.
+
+## process_all_images.js
+- NEVER run `src/media_namer/process_all_images.js` without an explicit **`--dry-run`** (or equivalent preview) first.
+- Full flatten/rename pipelines are separate from live WebP optimisation — do not conflate them.
+
+## Staging orphans
+- Manifest-only / unused assets go to `src/public_html/images/_staging/hinterland-unused/`.
+- NEVER permanently delete staged originals until the site owner confirms.
+- After staging moves, prune only the corresponding entries from `path-manifest.json`.
+
+## Canonical tree
+- `src/public_html/` is canonical for HTML references and deployed images.
+- Source rasters live under project-root `images/`; outputs under `src/public_html/images/`.
+
+## Lists
+- `scratchpad/live-images.json` — HTML-referenced WebPs (optimise targets).
+- `scratchpad/staging-images.json` — manifest-only orphans (staging targets).
